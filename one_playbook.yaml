@@ -1,0 +1,8 @@
+---
+- name: Deploy Fron-end for OpenNebula by CentOS
+  hosts: Centos 
+  become: true
+
+  roles:
+    - roles-OpenNebula
+

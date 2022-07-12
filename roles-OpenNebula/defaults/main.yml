@@ -1,0 +1,19 @@
+---
+mysql_login_root: "root"
+mysql_root_password: "P@ssw0rd"
+mysql_user_one: "oneadmin"
+mysql_password_one: "P@ssw0rd"
+    
+packages_for_OpenNebula:
+  - opennebula
+  - opennebula-sunstone-6.0.0.3-1.ce.el8.noarch
+  - opennebula-fireedge-debuginfo-6.0.0.3-1.ce.el8.x86_64
+  - opennebula-gate-6.0.0.3-1.ce.el8.noarch 
+  - opennebula-flow-6.0.0.3-1.ce.el8.noarch
+  - opennebula-provision
+
+packages_for_MySQL: 
+  - mysql-server
+  - python3-PyMySQL
+
+path_for_oned_conf: /etc/one/oned.conf
