@@ -17,3 +17,7 @@ packages_for_MySQL:
   - python3-PyMySQL
 
 path_for_oned_conf: /etc/one/oned.conf
+
+packages_for_KVM: 
+  - virt-install
+  - virt-viewer

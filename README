@@ -1,4 +1,21 @@
-1. Для ноды front-end:
+1. В файле 'roles-OpenNebula/tasks/main.yaml' и 'hosts':
+Изменить адреса нод
+
+после выполнить запуск роли:
+#ansible-playbook one_playbook.yaml
+
+2. Для ноды front-end:
 создать пароль для входа в веб-интерфейс
 #sudo -u oneadmin /bin/sh
 #echo  'oneadmin:<password>' > /var/lib/one/.one/one_auth
+
+3. Для нод node-kvm и node-lxc:
+назначить пароли для пользователя 'oneadmin' 
+#passwd oneadmin
+
+4 На front-end настраиваем безпарольное SSH подключение к нодам:
+#su - oneadmin
+#ssh-keyscan <frontend> <node1> <node2> <node3> ... >> /var/lib/one/.ssh/known_hosts
+  для каждой ноды:
+#ssh-copy-id -i /var/lib/one/.ssh/id_rsa.pub <node1>
+#scp -p /var/lib/one/.ssh/known_hosts <node1>:/var/lib/one/.ssh/ 

@@ -1,2 +1,10 @@
 ---
-- include_tasks: front-end.yml
+- name: Configurations node Front-end 
+  include_tasks: front-end.yml
+  when:
+    - ansible_ssh_host == '192.168.0.105'
+
+- name: Configurations node kvm
+  include_tasks: node-kvm.yml
+  when:
+    - ansible_ssh_host == '192.168.0.106'

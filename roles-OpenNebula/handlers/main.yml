@@ -3,3 +3,9 @@
   service: 
     name: firewalld 
     state: restarted
+
+- name: Started and Enabled libvirtd
+  service:
+    name: libvirtd
+    enabled: yes 
+    state: started 
