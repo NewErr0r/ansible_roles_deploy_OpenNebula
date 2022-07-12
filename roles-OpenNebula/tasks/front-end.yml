@@ -85,6 +85,11 @@
 
 - name: Enabled services by OpenNebula
   service:
-    name: "['opennebula', 'opennebula-sunstone', 'opennebula-gate', 'opennebula-flow']"
+    name: opennebula
     enabled: yes 
     state: started
+  loop:
+    - opennebula
+    - opennebula-sunstone
+    - opennebula-gate
+    - opennebula-flow

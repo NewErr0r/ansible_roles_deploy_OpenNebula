@@ -1,0 +1,4 @@
+1. Для ноды front-end:
+создать пароль для входа в веб-интерфейс
+#sudo -u oneadmin /bin/sh
+#echo  'oneadmin:<password>' > /var/lib/one/.one/one_auth
