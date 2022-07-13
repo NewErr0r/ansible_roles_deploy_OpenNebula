@@ -1,0 +1,36 @@
+---
+- name: Connecting a Community Repository
+  shell: |
+        cat << "EOT" > /etc/yum.repos.d/opennebula.repo
+        [opennebula]
+        name=OpenNebula Community Edition
+        baseurl=https://downloads.opennebula.io/repo/6.0/CentOS/8/$basearch
+        enabled=1
+        gpgkey=https://downloads.opennebula.io/repo/repo.key
+        gpgcheck=1
+        repo_gpgcheck=1
+        EOT
+        yum makecache -y
+
+- name: Disabled SELinux 
+  shell: setenforce 0  
+
+- name: Disabled SELinux 
+  ansible.posix.selinux:
+    state: disabled
+  
+- name: Disabled Firewalld
+  service:
+    name: firewalld 
+    enabled: no 
+    state: stopped
+
+- name: Install epel-release 
+  yum: 
+    name: epel-release
+    state: latest
+
+- name: Install "opennebula-node-lxc"
+  dnf:
+    name: opennebula-node-lxc
+    state: latest
